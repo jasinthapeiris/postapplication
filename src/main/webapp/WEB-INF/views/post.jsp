@@ -15,13 +15,19 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 
 body{
     margin: 0;
@@ -63,14 +69,12 @@ body{
     margin-right: 0;
 }
 
-
 .post-form
 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     margin-top: 100px;
 }
-
 
 #postTable{
   margin-top: 30px;
@@ -143,42 +147,37 @@ table, th, td {
                 </div>
             </div>
 
-
             
-            <table id="postTable" class="table table-striped table-bordered" style="width:100%">
+            <table class="table table-striped table-bordered" id="myTable">
                 <thead>
-                    <tr>
-                        <th>Post Id</th>
-                        <th>Posted Date</th>
-                        <th>Message</th>
-                        <th>Action</th>
-                        
-                    </tr>
+                <tr><th>Name</th><th>Email</th><th>Password</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2003/05/06</td>
-                        <td>Edinburgh</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2003/05/06</td>
-                        <td>Tokyo</td>
-                        <td>
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-   
+                <tr><td>Daniel mailto:danny</td><td>danny.daniel@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>samuel</td><td>samuel@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>jack</td><td>jack@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>eureka</td><td>eureka@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>pinky</td><td>pinky@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>mishti</td><td>mishti@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>puneet</td><td>puneet@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>nick</td><td>nick@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>danika</td><td>danika@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>vishakha</td><td>vishakha@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>nitin</td><td>ni3@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>latika</td><td>latika@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>kaavya</td><td>kaavya@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>ishika</td><td>ishika@gmail.com</td><td>Pass1234</td></tr>
+                <mailto:tr><td>veronika</td><td>veronika@gmail.com</td><td>Pass1234</td></tr>
                 </tbody>
-            </table>
+                </table>
 
             </div>
+              
+            <script>
+                $(document).ready( function () {
+                $('#myTable').DataTable();
+            } );
+                </script>
 
 </main>
 
