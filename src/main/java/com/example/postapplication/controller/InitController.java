@@ -57,6 +57,14 @@ public class InitController {
 		return model;
 	}
 	
+
+	@RequestMapping("/editOrDelete")
+	public ModelAndView editOrDelete() {
+		log.info("InitController init method calling.");
+		ModelAndView model = new ModelAndView("edit");
+		return model;
+	}
+	
 	@RequestMapping("/register")
 	public ModelAndView register() {
 		log.info("InitController init method calling.");

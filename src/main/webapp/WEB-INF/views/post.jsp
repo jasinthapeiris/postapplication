@@ -73,7 +73,7 @@ body{
 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    margin-top: 100px;
+    margin-top: -10px;
 }
 
 #postTable{
@@ -84,26 +84,28 @@ table, th, td {
     border: 1px solid black;
     
   }
-	
+tbody tr td:first-child {
+  width: 20%;
+ }
+ #myTable tbody tr td:last-child {
+  width: 16%;
+ }
 </style>
 
     <title>Post</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+    <!--nav class="navbar navbar-expand-lg navbar-light navbar-laravel"-->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel" style="background-color: #d0cece;">
         <div class="container">
-            <a class="navbar-brand" href="#">Post</a>
+            <a class="navbar-brand">ポストアプリケーション</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">user name</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">logout</a>
+                        <a class="nav-link" href="#">ログアウト</a>
                     </li>
                 </ul>
     
@@ -116,7 +118,7 @@ table, th, td {
         <main class="post-form">
             <div class="cotainer">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="card">
                             <div class="card-body">
                                 
@@ -125,18 +127,18 @@ table, th, td {
 
                                     <table style="width:100%">
                                         <tr>
-                                          <td><label for="email_address" class="col-md-10 col-form-label text-md-right">Speaker</label></td>
-                                          <td>Sugiyama (Name)</td>
+                                          <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
+                                          <td>杉山</td>
                                         </tr>
                                         <tr style="height:200px">
-                                          <td><label for="email_address" class="col-md-10 col-form-label text-md-right">Content</label></td>
+                                          <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
                                           <td> <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="7"></textarea></td>
                                         </tr>
                                         <tr>
-                                          <td>
-                                            <button style="margin-left: 30px; width: 95px; " type="submit" class="btn btn-primary" value="">Write in</button>
-                                            <button style="margin-left:10px; width: 95px" hidden type="button" class="btn btn-success">Edit</button>
-                                            <button type="button" style="width: 95px" hidden class="btn  btn-secondary">Back</button>
+                                          <td colspan="2">
+                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">書き込</button>
+                                            <button style="margin-left:5px; width: 95px" hidden type="button" class="btn btn-success" style="background-color: #d0cece; border-color: #6882a4"; >Edit</button>
+                                            <button type="button" style="margin-left:5px; width: 95px" hidden class="btn  btn-secondary" style="background-color: #d0cece; border-color: #6882a4"; >Back</button>
                                         </td>
                                         </tr>
                                       </table>
@@ -147,27 +149,19 @@ table, th, td {
                 </div>
             </div>
 
-            
+            <br>
             <table class="table table-striped table-bordered" id="myTable">
                 <thead>
-                <tr><th>Name</th><th>Email</th><th>Password</th></tr>
+                <tr><th>投稿日</th><th>メッセージ</th><th style="width: 88px;">アクション</th></tr>
                 </thead>
                 <tbody>
-                <tr><td>Daniel mailto:danny</td><td>danny.daniel@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>samuel</td><td>samuel@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>jack</td><td>jack@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>eureka</td><td>eureka@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>pinky</td><td>pinky@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>mishti</td><td>mishti@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>puneet</td><td>puneet@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>nick</td><td>nick@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>danika</td><td>danika@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>vishakha</td><td>vishakha@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>nitin</td><td>ni3@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>latika</td><td>latika@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>kaavya</td><td>kaavya@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>ishika</td><td>ishika@gmail.com</td><td>Pass1234</td></tr>
-                <mailto:tr><td>veronika</td><td>veronika@gmail.com</td><td>Pass1234</td></tr>
+<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
+<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
+<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
+<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>こんにちは、お元気ですか</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
+<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
+
+
                 </tbody>
                 </table>
 
