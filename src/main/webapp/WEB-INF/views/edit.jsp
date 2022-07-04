@@ -139,9 +139,10 @@ tbody tr td:first-child {
                                         </tr>
                                         <tr>
                                           <td colspan="2">
-                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">書き込</button>
-                                            <button style="margin-left:5px; width: 95px" hidden type="button" class="btn btn-success" style="background-color: #d0cece; border-color: #6882a4"; >Edit</button>
-                                            <button type="button" style="margin-left:5px; width: 95px" hidden class="btn  btn-secondary" style="background-color: #d0cece; border-color: #6882a4"; >Back</button>
+                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">編</button>
+                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="" hidden>削除</button>
+                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">戻る</button>
+                                            <label style="margin-left: 75px;">書き込みを編集中です。</label>
                                         </td>
                                         </tr>
                                       </table>
@@ -151,35 +152,7 @@ tbody tr td:first-child {
                     </div>
                 </div>
             </div>
-            
-             <div class="col-md-8 offset-md-2" id="list">
-                <div class="row" >
-                    <div class="col-md-6">Sugiyama</div>
-                    <div class="col-md-2">12.15.35</div>
-                    <div class="col-md-2"><a href="#">Edit</a></div>
-                    <div class="col-md-2"><a  href="#">Delete</a></div>
-                  </div>
-                  <div class="col-md-12"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow</p></div>
-                </div>
-
-          <!--  <br>
-            <table class="table table-striped table-bordered" id="myTable">
-                <thead>
-                <tr><th>投稿日</th><th>メッセージ</th><th style="width: 88px;">アクション</th></tr>
-                </thead>
-                <tbody>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>こんにちは、お元気ですか</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-
-
-                </tbody>
-                </table>
--->
             </div>
-              
             <script>
                 $(document).ready( function () {
                 $('#myTable').DataTable();
