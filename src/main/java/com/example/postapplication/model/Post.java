@@ -40,13 +40,8 @@ public class Post implements Serializable {
 	private Date postedDate;
 	@Column(name = "message")
 	private String message;
-	
-	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	@JsonBackReference
 	private User user;
-	
-	//@Column(name = "user_id")
-	//private Integer userId;
 }

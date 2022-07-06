@@ -15,6 +15,8 @@
  */
 package com.example.postapplication.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +52,13 @@ public class PostController {
 	public ModelAndView post() {
 		log.info("PostController post method calling.");
 		ModelAndView model = new ModelAndView("post");
-		List<Post> postList=postService.findPostByUser(1);
+		//List<Post> postList=postService.findPostByUser(1);
+		
+		Post post =new Post();
+		post.setMessage("dsfsf");
+		post.setPostedDate(new Date());
+		List<Post> postList=new ArrayList<>();
+		postList.add(post);
 		model.addObject("postList", postList);
 		return model;
 	}
