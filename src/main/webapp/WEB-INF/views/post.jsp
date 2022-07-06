@@ -115,8 +115,6 @@ pageEncoding="UTF-8" %>
                                           <tr>
                                               <td colspan="2">
                                                 <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">書き込</button>
-                                                <button style="margin-left:5px; width: 95px" hidden type="button" class="btn btn-success" style="background-color: #d0cece; border-color: #6882a4"; >Edit</button>
-                                                <button type="button" style="margin-left:5px; width: 95px" hidden class="btn  btn-secondary" style="background-color: #d0cece; border-color: #6882a4"; >Back</button>
                                             </td>
                                         </tr>
                                     </table>
@@ -132,8 +130,8 @@ pageEncoding="UTF-8" %>
                         <div class="row" style="margin-top: 5px;">
                             <div class="col-md-5" style="float: left;">${post.user.userName}</div>
                             <div class="col-md-3">${post.postedDate}</div>
-                            <div class="col-md-2" style="text-align: end;"><a href="#">編集</a></div>
-                            <div class="col-md-2" style="text-align: end;"><a  href="#">削除</a></div>
+                            <div class="col-md-2" style="text-align: end;"><a href="/editpost">編集</a></div>
+                            <div class="col-md-2" style="text-align: end;"><a  href="/deletepost">削除</a></div>
                         </div>
                         <div><p style="margin-top: 10px;">${post.message}</p></div>
                     </div>

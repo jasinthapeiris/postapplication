@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+ @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 
 body{
@@ -72,6 +72,9 @@ table, th, td {
     border: 1px solid black;
     
   }
-
-
   
+  .phara{
+  	margin-top: 8px;
+  	color:red
+
+  }

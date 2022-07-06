@@ -34,39 +34,42 @@ public class UserService {
 	private final UserRepository userRepository;
 
 	/**
-	 * Returns user from given user id
+	 * findByUserId method is Returns user by given user id
 	 * 
 	 * @param userId Integer value
 	 * @return user
 	 */
-	public User findAllByUserId(Integer userId) {
+	public User findByUserId(Integer userId) {
 		log.debug("UserService in findAllByUserId method calling.");
 		User user = userRepository.findByUserId(userId);
 		return user;
 	}
 
 	/**
-	 * Returns status after validate user
+	 * authenticateUser method is Returns status after validate user
 	 * 
-	 * @param user 
+	 * @param user
 	 * @return status
 	 */
 	public Boolean authenticateUser(User user) {
 		log.debug("UserService in authenticateUser method calling.");
-		User userData = userRepository.findByUserEmail(user.getUserEmail());
-		Boolean status=false;
-		if(userData!=null) {
-		 status=validatePassword(userData,user.getUserPassword());
-		 return status;
+		Boolean status = false;
+		User userData = userRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
+		if (userData != null) {
+			status = true;
 		}
 		return status;
 	}
 
-	
-	//password check karana eka methana liyanna ona
-	private Boolean validatePassword(User userData, String userPassword) {
-		log.debug("UserService in validatePassword method calling.");
-		
-		return null;
+	/**
+	 * findUserByEmailPsw method is Returns find User By Email Password
+	 * 
+	 * @param user
+	 * @return user
+	 */
+	public User findUserByEmailPsw(User user) {
+		log.debug("UserService in authenticateUser method calling.");
+		User userData = userRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
+		return userData;
 	}
 }

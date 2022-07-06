@@ -23,21 +23,9 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -62,7 +50,7 @@ public class PostService {
 	public @NonNull Post savePost(Post post) {
 		log.debug("PostService in savePost method calling.");
 		post.setPostedDate(new Date());
-		User u=userService.findAllByUserId(1);
+		User u=userService.findByUserId(1);
 		post.setUser(u);
 		return postRepository.save(post);
 	}
