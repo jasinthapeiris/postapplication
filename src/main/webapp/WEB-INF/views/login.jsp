@@ -16,6 +16,20 @@ pageEncoding="utf-8"%>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <title>Login</title>
+    
+    
+<script> 
+window.onload = function(e){ 
+       document.getElementById("error1").style.display = "none";  
+}  
+function check() {
+ if(document.getElementById("password").value.length==0){
+      document.getElementById("error1").style.display = "block";
+    }
+}
+</script>
+
+
 </head>
 <body> 
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel" style="background-color: #d0cece;">
@@ -45,7 +59,7 @@ pageEncoding="utf-8"%>
                                 </div>
                             </div>
                             <div class="col-md-2 offset-md-5">
-                                <button type="submit" style="background-color: #d0cece; border-color: #6882a4"; class="btn btn-primary">
+                                <button id="loginButton" onclick="check()"  style="background-color: #d0cece; border-color: #6882a4"; class="btn btn-primary">
                                   ログインする
                                 </button>
                             </div>
@@ -55,10 +69,10 @@ pageEncoding="utf-8"%>
                     
                 </div>
                 <div>
-	        <p class="phara">パスワードを省略することはできません</p>
+	        <p id="error1"  class="phara">パスワードを省略することはできません</p>
 	        </div>
 	         <div>
-	        <p class="phara">メールアドレス、もしくはパスワードが間違っています</p>
+	        <p id="error2" class="phara">メールアドレス、もしくはパスワードが間違っています</p>
 	        </div>
             </div>
         </div>
