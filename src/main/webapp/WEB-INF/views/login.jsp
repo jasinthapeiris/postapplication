@@ -118,17 +118,17 @@ table, th, td {
                 <div class="card">
                     <div class="card-header center" style="background-color: #e1ebf7; text-align: center;" >ログイン認証</div>
                     <div class="card-body">
-                        <form action="post" method="">
+                      <form action="/verify" method="post">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email-address">
+                                    <input type="text" id="email" class="form-control" name="userEmail">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password">
+                                    <input type="password" id="password" class="form-control" name="userPassword">
                                 </div>
                             </div>
                             <div class="col-md-2 offset-md-5">
