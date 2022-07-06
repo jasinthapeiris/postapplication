@@ -44,4 +44,29 @@ public class UserService {
 		User user = userRepository.findByUserId(userId);
 		return user;
 	}
+
+	/**
+	 * Returns status after validate user
+	 * 
+	 * @param user 
+	 * @return status
+	 */
+	public Boolean authenticateUser(User user) {
+		log.debug("UserService in authenticateUser method calling.");
+		User userData = userRepository.findByUserEmail(user.getUserEmail());
+		Boolean status=false;
+		if(userData!=null) {
+		 status=validatePassword(userData,user.getUserPassword());
+		 return status;
+		}
+		return status;
+	}
+
+	
+	//password check karana eka methana liyanna ona
+	private Boolean validatePassword(User userData, String userPassword) {
+		log.debug("UserService in validatePassword method calling.");
+		
+		return null;
+	}
 }

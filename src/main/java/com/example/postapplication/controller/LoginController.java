@@ -14,9 +14,19 @@
  *  All Rights Reserved.
  */
 package com.example.postapplication.controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.example.postapplication.model.Post;
+import com.example.postapplication.model.User;
+import com.example.postapplication.service.PostService;
+import com.example.postapplication.service.UserService;
+
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -25,7 +35,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Controller
+@RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
 public class LoginController {
+	
+	private final UserService userService;
 	/**
 	 * Returns login page for login to user
 	 * 
@@ -37,4 +50,21 @@ public class LoginController {
 		ModelAndView model = new ModelAndView("login");
 		return model;
 	}
+	
+	/**
+	* save new post created by user
+	* @param post 
+	* @return redirect to post url
+	*/
+	@PostMapping("/verify")
+	public String verfiyUser(@ModelAttribute User user) {
+		log.info("LoginController verfiyUser method calling.");
+		Boolean status =userService.authenticateUser(user);
+		if(status==true) {
+			return "redirect:/post";
+		}else {
+			return "redirect:/login";
+		}
+	}
+
 }
