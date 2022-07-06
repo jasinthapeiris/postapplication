@@ -96,6 +96,12 @@ table, th, td {
     border: 1px solid black;
     
   }
+  
+  .phara{
+  	margin-top: 8px;
+  	color:red
+
+  }
 </style>
 </head>
 <body> 
@@ -112,7 +118,7 @@ table, th, td {
                 <div class="card">
                     <div class="card-header center" style="background-color: #e1ebf7; text-align: center;" >ログイン認証</div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form action="post" method="">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">メールアドレス</label>
                                 <div class="col-md-6">
@@ -131,10 +137,19 @@ table, th, td {
                                 </button>
                             </div>
                         </div>
+                        
                     </form>
+                    
                 </div>
+                <div>
+	        <p class="phara">パスワードを省略することはできません</p>
+	        </div>
+	         <div>
+	        <p class="phara">メールアドレス、もしくはパスワードが間違っています</p>
+	        </div>
             </div>
         </div>
+	        
     </div>
     </div>
 

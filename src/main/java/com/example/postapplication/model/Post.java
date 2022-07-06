@@ -1,6 +1,6 @@
 /*
  *  @author Jasintha Peiris
- *  @version 0.0.1 2022/07/04 
+ *  @version 0.0.1 2022/07/05 
  *  E-Mail jasinthaamakara@gmail.com
  * 
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
@@ -18,41 +18,35 @@ package com.example.postapplication.model;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author Jasintha Peiris
- * @version 0.0.1 2022/07/04 This class process the User model class for user
+ * @version 0.0.1 2022/07/04 This class process the Post model class for post
  *          database
  */
 @Setter
 @Getter
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Table(name = "post")
+public class Post implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
-	private Integer userId;
-	@Column(name = "user_name")
-	private String userName;
-	@Column(name = "user_e_mail")
-	private String userEmail;
-	@Column(name = "user_password")
-	private String userPassword;
-	@Column(name = "user_salt")
-	private String userSalt;
-	@Column(name = "user_unlock")
-	private Date userUnlock;
+	@Column(name = "post_id")
+	private Integer postId;
+	@Column(name = "posted_date")
+	private Date postedDate;
+	@Column(name = "message")
+	private String message;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-	@JsonManagedReference
-	Set<Post> post=new HashSet<Post>();
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	@JsonBackReference
+	private User user;
+	
+	//@Column(name = "user_id")
+	//private Integer userId;
 }

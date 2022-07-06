@@ -13,20 +13,28 @@
  *  without written authorization from the Jasintha Peiris
  *  All Rights Reserved.
  */
-package com.example.postapplication.repository;
-
-import javax.transaction.Transactional;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-import com.example.postapplication.model.User;
+package com.example.postapplication.controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Jasintha Peiris
- * @version 0.0.1 2022/07/04 This class process the Post crud operation extends
- *          CrudRepository using springframework
+ * @version 0.0.1 2022/07/04 This class process the Login operation controller class
  */
-@Repository
-@Transactional
-public interface UserRepository extends CrudRepository<User, Integer> {
-	User findByUserId(Integer userId);
+@Slf4j
+@Controller
+public class LoginController {
+	/**
+	 * Returns login page for login to user
+	 * 
+	 * @return login page as a model
+	 */
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		log.info("LoginController login method calling.");
+		ModelAndView model = new ModelAndView("login");
+		return model;
+	}
 }
