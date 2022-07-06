@@ -14,16 +14,16 @@
  *  All Rights Reserved.
  */
 package com.example.postapplication.controller;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.example.postapplication.model.Post;
 import com.example.postapplication.model.User;
-import com.example.postapplication.service.PostService;
 import com.example.postapplication.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,14 +31,16 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Jasintha Peiris
- * @version 0.0.1 2022/07/04 This class process the Login operation controller class
+ * @version 0.0.1 2022/07/04 This class process the Login operation controller
+ *          class
  */
 @Slf4j
 @Controller
 @RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
 public class LoginController {
-	
+
 	private final UserService userService;
+
 	/**
 	 * Returns login page for login to user
 	 * 
@@ -50,21 +52,23 @@ public class LoginController {
 		ModelAndView model = new ModelAndView("login");
 		return model;
 	}
-	
+
 	/**
-	* save new post created by user
-	* @param post 
-	* @return redirect to post url
-	*/
+	 * save new post created by user
+	 * 
+	 * @param post
+	 * @return redirect to post url
+	 */
 	@PostMapping("/verify")
-	public String verfiyUser(@ModelAttribute User user) {
-		log.info("LoginController verfiyUser method calling.");
-		Boolean status =userService.authenticateUser(user);
-		if(status==true) {
+	public String verfiyUser(@ModelAttribute User user, HttpSession session) {
+		log.info("LoginController in verfiyUser method calling.");
+		Boolean status = userService.authenticateUser(user);
+		if (status == true) {
+			User userData = userService.findUserByEmailPsw(user);
+			session.setAttribute("user", userData);
 			return "redirect:/post";
-		}else {
+		} else {
 			return "redirect:/login";
 		}
 	}
-
 }

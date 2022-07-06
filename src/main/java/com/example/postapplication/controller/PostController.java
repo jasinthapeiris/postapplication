@@ -15,8 +15,6 @@
  */
 package com.example.postapplication.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,46 +38,69 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
 public class PostController {
-	
+
 	private final PostService postService;
 
 	/**
-	 * open post page as a model for curd operation
+	 * open post page as a model for create and view operation
 	 * 
 	 * @return post page as a model
 	 */
 	@RequestMapping("/post")
 	public ModelAndView post() {
-		log.info("PostController post method calling.");
+		log.info("PostController in post method calling.");
 		ModelAndView model = new ModelAndView("post");
-		//List<Post> postList=postService.findPostByUser(1);
-		
-		Post post =new Post();
-		post.setMessage("dsfsf");
-		post.setPostedDate(new Date());
-		List<Post> postList=new ArrayList<>();
-		postList.add(post);
+		List<Post> postList = postService.findPostByUser(1);
 		model.addObject("postList", postList);
+		return model;
+	}
+
+	/**
+	 * open edit post page as a model for edit exist post
+	 * @return edit post page as a model
+	 */
+	@RequestMapping("/editpost")
+	public ModelAndView editpost() {
+		log.info("PostController editpost method calling.");
+		ModelAndView model = new ModelAndView("edit");
 		return model;
 	}
 	
 	/**
-	* save new post created by user
-	* @param post 
-	* @return redirect to post url
-	*/
-	@PostMapping("/save")
-	public String save(@ModelAttribute Post post) {
-		log.info("PostController save method calling.");
-		postService.savePost(post);
-		return "redirect:/post";
+	 * open delete post page as a model for delete exist post
+	 * @return delete post page as a model
+	 */
+	@RequestMapping("/deletepost")
+	public ModelAndView deletepost() {
+		log.info("PostController deletepost method calling.");
+		ModelAndView model = new ModelAndView("delete");
+		return model;
 	}
 
-	@RequestMapping("/editOrDelete")
+	/**
+	 * edit exist post
+	 * 
+	 * @param post
+	 * @return redirect to post url
+	 */
+	@RequestMapping("/edit")
 	public ModelAndView editOrDelete() {
-		log.info("InitController init method calling.");
+		log.info("PostController in post method calling.");
 		ModelAndView model = new ModelAndView("edit");
 		return model;
+	}
+
+	/**
+	 * save to new post created by user to pass to post service
+	 * 
+	 * @param post
+	 * @return redirect to post url
+	 */
+	@PostMapping("/save")
+	public String save(@ModelAttribute Post post) {
+		log.info("PostController in save method calling.");
+		postService.savePost(post);
+		return "redirect:/post";
 	}
 
 }

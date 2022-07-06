@@ -9,100 +9,13 @@ pageEncoding="utf-8"%>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="css/signin.css" rel="stylesheet">
-
+    <link href="css/login.css" rel="stylesheet">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
     <title>Login</title>
-    
-    
-    <style>
-    @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
-
-body{
-    margin: 0;
-    font-size: .9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #212529;
-    text-align: left;
-    background-color: #f5f8fa;
-    font-family: "Meiryo", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "MS Gothic", "MS P Gothic", sans-serif !important;
-}
-
-.navbar-laravel
-{
-    box-shadow: 0 2px 4px rgba(0,0,0,.04);
-}
-
-.navbar-brand , .nav-link, .my-form, .login-form
-{
-    font-family: Raleway, sans-serif;
-}
-
-.my-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.my-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.login-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: 150px;
-}
-
-.login-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.card-header1 {
-
-  text-align: center !important;
-}
-
-.navbar-toggler-icon{
-  display: inline !important;
-}
-
-.post-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: 100px;
-}
-
-
-#postTable{
-  margin-top: 30px;
-}
-
-table, th, td {
-    border: 1px solid black;
-    
-  }
-  
-  .phara{
-  	margin-top: 8px;
-  	color:red
-
-  }
-</style>
 </head>
 <body> 
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel" style="background-color: #d0cece;">

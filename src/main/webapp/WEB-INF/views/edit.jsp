@@ -147,9 +147,8 @@ tbody tr td:first-child {
                                         </tr>
                                         <tr>
                                           <td colspan="2">
-                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="編">削除</button>
-                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="" hidden>削除</button>
-                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">戻る</button>
+                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">編</button>
+                                            <button onclick="window.location.href = '/post'" style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="button" class="btn btn-primary" value="">戻る</button>
                                             <label style="margin-left: 75px;">書き込みを編集中です。</label>
                                         </td>
                                         </tr>
