@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -126,43 +127,19 @@ pageEncoding="UTF-8" %>
                     
                     
                     
-                    
+                   <c:forEach items="${postList}" var="post"> 
                     <div class="col-md-10" id="list" >
                         <div class="row" style="margin-top: 5px;">
-                            <div class="col-md-5" style="float: left;">杉山</div>
-                            <div class="col-md-3">2021年01月04日(月)14:25:30</div>
-                            <div class="col-md-2" style="text-align: end;"><a href="#">編集</a></div>
-                            <div class="col-md-2" style="text-align: end;"><a  href="#">削除</a></div>
-                        </div>
-                        <div><p style="margin-top: 10px;">きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう</p></div>
-                    </div>
-                    
-                    
-                    
-                    
-                    
-                    <c:forEach items="${postList}" var="post"> 
-					      
-                    <div class="col-md-10" id="list" >
-                        <div class="row" style="margin-top: 5px;">
-                            <div class="col-md-5" style="float: left;">${post.name}</div>
+                            <div class="col-md-5" style="float: left;">${post.user.userName}</div>
                             <div class="col-md-3">${post.postedDate}</div>
                             <div class="col-md-2" style="text-align: end;"><a href="#">編集</a></div>
                             <div class="col-md-2" style="text-align: end;"><a  href="#">削除</a></div>
                         </div>
-                        <div><p style="margin-top: 10px;">きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう</p></div>
+                        <div><p style="margin-top: 10px;">${post.message}</p></div>
                     </div>
-                    
-					</c:forEach>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                   </c:forEach>
+                   
+                   
                 </div>
             </div>
         </main></body>

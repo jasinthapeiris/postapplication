@@ -23,9 +23,18 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,22 +62,28 @@ public class PostService {
 	public @NonNull Post savePost(Post post) {
 		log.debug("PostService in savePost method calling.");
 		post.setPostedDate(new Date());
-		//userService.findAllByUserId(null)
-		User u=new User();
-		u.setUserId(1);
+		User u=userService.findAllByUserId(1);
 		post.setUser(u);
 		return postRepository.save(post);
 	}
 
 	/**
-	 * findPostByUser method is find Post By User Id and return it
+	 * findPostByUser method is find Post By User Id and return post list
 	 * 
-	 * @param userId is Integer type data
+	 * @param userId is Integer type value
 	 * @return postList
 	 */
 	public List<Post> findPostByUser(Integer userId) {
 		log.debug("PostService findPostByUser method calling.");
 		List<Post> postList = postRepository.findByUserUserId(userId);
+		/*
+		 * for (Post post : postList) { String
+		 * ddd=SimpleDateFormat.getDateInstance(SimpleDateFormat.LONG,
+		 * Locale.JAPAN).format(post.getPostedDate()); String
+		 * dddsa=SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG,
+		 * SimpleDateFormat.LONG, Locale.JAPAN).format(post.getPostedDate());;
+		 * System.out.println("ddd="+ddd); System.out.println("ddd="); }
+		 */
 		return postList;
 	}
 }
