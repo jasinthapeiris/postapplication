@@ -1,98 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-
+pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
     <link href="/css/signin.css" rel="stylesheet" type="text/css">
-    
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+        body{
+            margin: 0;
+            font-size: .9rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #212529;
+            text-align: left;
+            background-color: #f5f8fa;
+            font-family: "Meiryo", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "MS Gothic", "MS P Gothic", sans-serif !important;
+        }
+        .navbar-laravel
+        {
+            box-shadow: 0 2px 4px rgba(0,0,0,.04);
+        }
+        .navbar-brand , .nav-link, .my-form, .login-form
+        {
+            font-family: Raleway, sans-serif;
+        }
+        .my-form .row
+        {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .login-form
+        {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            margin-top: 150px;
+        }
+        .login-form .row
+        {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .post-form
+        {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            margin-top: 100px;
+        }
 
-<style>
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
-body{
-    margin: 0;
-    font-size: .9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #212529;
-    text-align: left;
-    background-color: #f5f8fa;
-    font-family: "Meiryo", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "MS Gothic", "MS P Gothic", sans-serif !important;
-}
-
-.navbar-laravel
-{
-    box-shadow: 0 2px 4px rgba(0,0,0,.04);
-}
-
-.navbar-brand , .nav-link, .my-form, .login-form
-{
-    font-family: Raleway, sans-serif;
-}
-
-.my-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.login-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: 150px;
-}
-
-.login-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.post-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: -10px;
-}
-
-#postTable{
-  margin-top: 30px;
-}
-
-table, th, td {
-    border: 1px solid black;
-    
+        #postTable{
+          margin-top: 50px;
+      }
+      table, th, td {
+        border: 1px solid black;
+        
+    }
+    tbody tr td:first-child {
+      width: 13%;
   }
-tbody tr td:first-child {
-  width: 20%;
- }
- #myTable tbody tr td:last-child {
-  width: 16%;
- }
+  .label-two {
+    margin-left: 10px;
+}
 </style>
-
-    <title>Post</title>
+<title>Post</title>
 </head>
 <body>
     <!--nav class="navbar navbar-expand-lg navbar-light navbar-laravel"-->
@@ -103,90 +87,83 @@ tbody tr td:first-child {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link"> 杉山さん、ログイン中...</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">ログアウト</a>
-                    </li>
-                </ul>
-    
             </div>
         </div>
     </nav>
-
-    
     <div class="container">
         <main class="post-form">
-            <div class="cotainer">
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <div class="card">
-                            <div class="card-body">
-                                
-                                
-                                <form action="" method="">
-
-                                    <table style="width:100%">
-                                        <tr>
-                                          <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
-                                          <td>杉山</td>
+           <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/save" method="post">
+                                <table style="width:100%">
+                                    <div style="margin-bottom: -8px;">
+                                        <label>杉山さん、ログイン中...</lable>
+                                            <label class="label-two">ログアウト</lable>
+                                            </div>
+                                            <tr>
+                                              <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
+                                              <td>杉山</td>
+                                          </tr>
+                                          <tr style="height:200px">
+                                              <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
+                                              <td> <textarea class="form-control" id="message" name="message" placeholder="Message" rows="7"></textarea></td>
+                                          </tr>
+                                          <tr>
+                                              <td colspan="2">
+                                                <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">書き込</button>
+                                                <button style="margin-left:5px; width: 95px" hidden type="button" class="btn btn-success" style="background-color: #d0cece; border-color: #6882a4"; >Edit</button>
+                                                <button type="button" style="margin-left:5px; width: 95px" hidden class="btn  btn-secondary" style="background-color: #d0cece; border-color: #6882a4"; >Back</button>
+                                            </td>
                                         </tr>
-                                        <tr style="height:200px">
-                                          <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
-                                          <td> <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="7"></textarea></td>
-                                        </tr>
-                                        <tr>
-                                          <td colspan="2">
-                                            <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">書き込</button>
-                                            <button style="margin-left:5px; width: 95px" hidden type="button" class="btn btn-success" style="background-color: #d0cece; border-color: #6882a4"; >Edit</button>
-                                            <button type="button" style="margin-left:5px; width: 95px" hidden class="btn  btn-secondary" style="background-color: #d0cece; border-color: #6882a4"; >Back</button>
-                                        </td>
-                                        </tr>
-                                      </table>
-                            </div>
+                                    </table>
+                                </div>
                             </form>
                         </div>
                     </div>
+                    
+                    
+                    
+                    
+                    <div class="col-md-10" id="list" >
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-md-5" style="float: left;">杉山</div>
+                            <div class="col-md-3">2021年01月04日(月)14:25:30</div>
+                            <div class="col-md-2" style="text-align: end;"><a href="#">編集</a></div>
+                            <div class="col-md-2" style="text-align: end;"><a  href="#">削除</a></div>
+                        </div>
+                        <div><p style="margin-top: 10px;">きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう</p></div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <c:forEach items="${postList}" var="post"> 
+					      
+                    <div class="col-md-10" id="list" >
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-md-5" style="float: left;">${post.name}</div>
+                            <div class="col-md-3">${post.postedDate}</div>
+                            <div class="col-md-2" style="text-align: end;"><a href="#">編集</a></div>
+                            <div class="col-md-2" style="text-align: end;"><a  href="#">削除</a></div>
+                        </div>
+                        <div><p style="margin-top: 10px;">きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう</p></div>
+                    </div>
+                    
+					</c:forEach>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 </div>
             </div>
-            
-             <div class="col-md-8 offset-md-2" id="list">
-                <div class="row" >
-                    <div class="col-md-6">Sugiyama</div>
-                    <div class="col-md-2">12.15.35</div>
-                    <div class="col-md-2"><a href="#">Edit</a></div>
-                    <div class="col-md-2"><a  href="#">Delete</a></div>
-                  </div>
-                  <div class="col-md-12"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow</p></div>
-                </div>
-
-          <!--  <br>
-            <table class="table table-striped table-bordered" id="myTable">
-                <thead>
-                <tr><th>投稿日</th><th>メッセージ</th><th style="width: 88px;">アクション</th></tr>
-                </thead>
-                <tbody>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>こんにちは、お元気ですか</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-<tr><td>杉山 2021年01月04日(月)14:25:30</td><td>きょう4日(月)は、関東から西は晴れる一方、北陸や北日本は雪や雨が降るでしょう。</td><td><button type="button" class="btn btn-success">編集</button>&nbsp;<button type="button" class="btn btn-danger">削除</button></td></tr>
-
-
-                </tbody>
-                </table>
--->
-            </div>
-              
-            <script>
-                $(document).ready( function () {
-                $('#myTable').DataTable();
-            } );
-                </script>
-
-</main>
-
-</body>
-</html>
+        </main></body>
+        </html>

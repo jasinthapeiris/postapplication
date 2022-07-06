@@ -1,51 +1,47 @@
 /*
- *     Copyright (c) 1995-2020,  The Data Management Group Ltd   All Rights Reserved.
- *     *  PROPRIETARY AND COPYRIGHT NOTICE.
- *
- *        This software product contains information which is proprietary to
- *        and considered a trade secret The Data management Group Ltd .
- *        It is expressly agreed that it shall not be reproduced in whole or part,
- *        disclosed, divulged or otherwise made available to any third party directly
- *        or indirectly.  Reproduction of this product for any purpose is prohibited
- *        without written authorisation from the The Data Management Group Ltd
- *        All Rights Reserved.
- *
- *        E-Mail andyj@datam.co.uk
- *        URL : www.datam.co.uk
- *        Created By :jasintha peiris
+ *  @author Jasintha Peiris
+ *  @version 0.0.1 2022/07/04 説明
+ *  E-Mail jasinthaamakara@gmail.com
+ * 
+ *  Copyright (c), Jasintha Peiris  All Rights Reserved.
+ *  PROPRIETARY AND COPYRIGHT NOTICE.
+ *  This software product contains information which is proprietary to
+ *  and considered a trade secret Jasintha Peiris .
+ *  It is expressly agreed that it shall not be reproduced in whole or part,
+ *  disclosed, divulged or otherwise made available to any third party directly
+ *  or indirectly.  Reproduction of this product for any purpose is prohibited
+ *  without written authorization from the Jasintha Peiris
+ *  All Rights Reserved.
  */
 package com.example.postapplication.service;
 
 import com.example.postapplication.model.User;
 import com.example.postapplication.repository.UserRepository;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Date :2019-04-20. This class process the crud operation Service class
- *
- * @author Jasintha peiris
+ * @author Jasintha Peiris
+ * @version 0.0.1 2022/07/04 This class process the user crud operation Service
+ *          class
  */
+@Slf4j
 @Component
+@RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
 public class UserService {
-	private static final Logger log = LoggerFactory.getLogger(UserService.class);
-	@Autowired
-	private UserRepository userRepository;
-	
-	/**
-	 * findAllByUserId method is find all data by master Id
-	 *
-	 * @return findAllByUserId
-	 */
-	public Iterable<User> findAllByUserId() {
-		if (log.isDebugEnabled()) {
-			log.debug("calling UserService in findAllByUserId method");
-		}
-		Iterable<User> userByUserId = userRepository.findAll();
-		return userByUserId;
-	}
+	private final UserRepository userRepository;
 
+	/**
+	 * Returns user from given user id
+	 * 
+	 * @param userId Integer value
+	 * @return user
+	 */
+	public User findAllByUserId(Integer userId) {
+		log.debug("UserService in findAllByUserId method calling.");
+		User user = userRepository.findByUserId(userId);
+		return user;
+	}
 }

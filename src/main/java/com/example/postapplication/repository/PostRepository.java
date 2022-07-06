@@ -1,6 +1,6 @@
 /*
  *  @author Jasintha Peiris
- *  @version 0.0.1 2022/07/04 
+ *  @version 0.0.1 2022/07/05 
  *  E-Mail jasinthaamakara@gmail.com
  * 
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
@@ -18,7 +18,9 @@ package com.example.postapplication.repository;
 import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.example.postapplication.model.User;
+import com.example.postapplication.model.Post;
+import java.lang.String;
+import java.util.List;
 
 /**
  * @author Jasintha Peiris
@@ -27,6 +29,6 @@ import com.example.postapplication.model.User;
  */
 @Repository
 @Transactional
-public interface UserRepository extends CrudRepository<User, Integer> {
-	User findByUserId(Integer userId);
+public interface PostRepository extends CrudRepository<Post, Integer> {
+	List<Post> findByUserUserId(Integer userId);
 }
