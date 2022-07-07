@@ -74,4 +74,32 @@ public class PostService {
 		 */
 		return postList;
 	}
+	
+
+	/**
+	 * updatePost method is update post 
+	 
+	 * @param post
+	 * @return updatedPost
+	 */
+
+	public Post updatePost(Post post) {
+		log.debug("PostService updatePost method calling.");
+		Post existPost=postRepository.findByPostId(post.getPostId());
+		existPost.setMessage(post.getMessage());
+		return postRepository.save(existPost);
+	}
+
+	/**
+	 * deletePost method is delete post 
+	 * 
+	 * @param id
+	 * @return deletedPost
+	 */
+	public Post deletePost(int id) {
+		log.debug("PostService deletePost method calling.");
+		Post deletedPost=postRepository.findByPostId(id);
+		postRepository.delete(deletedPost);
+		return deletedPost;
+	}
 }

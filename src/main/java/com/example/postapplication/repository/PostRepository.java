@@ -31,4 +31,5 @@ import java.util.List;
 @Transactional
 public interface PostRepository extends CrudRepository<Post, Integer> {
 	List<Post> findByUserUserId(Integer userId);
+	Post findByPostId(Integer postId);
 }
