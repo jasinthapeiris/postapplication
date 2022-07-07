@@ -60,9 +60,12 @@ public class PostController {
 	 * @return edit post page as a model
 	 */
 	@RequestMapping("/editpost")
-	public ModelAndView editpost() {
+	public ModelAndView editpost(@ModelAttribute Post post) {
 		log.info("PostController editpost method calling.");
-		ModelAndView model = new ModelAndView("edit");
+		Post updatedPost = postService.updatePost(post);
+		ModelAndView model = new ModelAndView("post");
+		List<Post> postList = postService.findPostByUser(1);
+		model.addObject("postList", postList);
 		return model;
 	}
 	
@@ -70,10 +73,13 @@ public class PostController {
 	 * open delete post page as a model for delete exist post
 	 * @return delete post page as a model
 	 */
-	@RequestMapping("/deletepost")
-	public ModelAndView deletepost() {
+	@RequestMapping("/deletepost/{id}")
+	public ModelAndView deletepost(int id) {
 		log.info("PostController deletepost method calling.");
-		ModelAndView model = new ModelAndView("delete");
+		Post deletedPost = postService.deletePost(id);
+		ModelAndView model = new ModelAndView("post");
+		List<Post> postList = postService.findPostByUser(1);
+		model.addObject("postList", postList);
 		return model;
 	}
 
