@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="/css/signin.css" rel="stylesheet" type="text/css">
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -129,27 +128,25 @@ tbody tr td:first-child {
                     <div class="col-md-10">
                         <div class="card">
                             <div class="card-body">
-                                
-                                
-                                <form action="" method="">
+                                <form action="/delete/${post.postId}" method="post">
 									<div>
-									<label>杉山さん、ログイン中...</lable>
+									<label>${loginUser.userName}さん、ログイン中...</lable>
 									<label class="label-two">ログアウト</lable>
 									</div>
                                     <table style="width:100%">
                                         <tr>
                                           <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
-                                          <td>杉山</td>
+                                          <td>${loginUser.userName}</td>
                                         </tr>
                                         <tr style="height:200px">
                                           <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
-                                          <td> <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="7"></textarea></td>
+                                          <td> <textarea class="form-control" id="message" name="message" placeholder="Message" rows="7">${post.message}</textarea></td>
                                         </tr>
                                         <tr>
                                           <td colspan="2">
                                             <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="submit"  class="btn btn-primary" value="">削除</button>
-                                            <button onclick="window.location.href = '/delete'"  style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="button" class="btn btn-primary" value="">戻る</button>
-                                            <label style="margin-left: 75px;">書き込みを編集中です。</label>
+                                            <button onclick="window.location.href = '/post'"  style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;" type="button" class="btn btn-primary" value="">戻る</button>
+                                            <label style="margin-left: 75px;">書き込みを削除中です。</label>
                                         </td>
                                         </tr>
                                       </table>

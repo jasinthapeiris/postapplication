@@ -39,6 +39,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
 public class LoginController {
 
+	private static final String ERROR = "メールアドレス、もしくはパスワードが間違っています";	
 	private final UserService userService;
 
 	/**
@@ -60,14 +61,15 @@ public class LoginController {
 	 * @return redirect to post url
 	 */
 	@PostMapping("/verify")
-	public String verfiyUser(@ModelAttribute User user, HttpSession session) {
+	public String verfiyUser(@ModelAttribute User user,HttpSession session) {
 		log.info("LoginController in verfiyUser method calling.");
 		Boolean status = userService.authenticateUser(user);
 		if (status == true) {
 			User userData = userService.findUserByEmailPsw(user);
-			session.setAttribute("user", userData);
+			session.setAttribute("loginUser", userData);
 			return "redirect:/post";
 		} else {
+			session.setAttribute("error",ERROR);
 			return "redirect:/login";
 		}
 	}

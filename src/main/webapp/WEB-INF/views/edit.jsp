@@ -8,9 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="/css/signin.css" rel="stylesheet" type="text/css">
-    
-
+  
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -129,21 +127,20 @@ tbody tr td:first-child {
                     <div class="col-md-10">
                         <div class="card">
                             <div class="card-body">
-                                
-                                
-                                <form action="" method="">
+                                 <form action="/edit" method="post">
 									<div>
-									<label>杉山さん、ログイン中...</lable>
+									<label>${loginUser.userName}さん、ログイン中...</lable>
 									<label class="label-two">ログアウト</lable>
 									</div>
                                     <table style="width:100%">
                                         <tr>
                                           <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
-                                          <td>杉山</td>
+                                          <td>${loginUser.userName}</td>
                                         </tr>
                                         <tr style="height:200px">
                                           <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
-                                          <td> <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Message" rows="7"></textarea></td>
+                                           <input type="hidden" id="postId" name="postId" value="${post.postId}">
+                                          <td> <textarea class="form-control" id="message" name="message" placeholder="Message" rows="7">${post.message}</textarea></td>
                                         </tr>
                                         <tr>
                                           <td colspan="2">

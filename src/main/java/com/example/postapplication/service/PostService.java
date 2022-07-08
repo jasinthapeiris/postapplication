@@ -45,13 +45,14 @@ public class PostService {
 	 * savePost method is save post and Return saved post
 	 * 
 	 * @param post
+	 * @param user 
 	 * @return saved post
 	 */
-	public @NonNull Post savePost(Post post) {
+	public @NonNull Post savePost(Post post, User user) {
 		log.debug("PostService in savePost method calling.");
 		post.setPostedDate(new Date());
-		User u=userService.findByUserId(1);
-		post.setUser(u);
+		User exist=userService.findByUserId(user.getUserId());
+		post.setUser(exist);
 		return postRepository.save(post);
 	}
 
@@ -75,31 +76,41 @@ public class PostService {
 		return postList;
 	}
 	
-
 	/**
-	 * updatePost method is update post 
-	 
-	 * @param post
-	 * @return updatedPost
+	 * findPostById method is find Post By Id and return post
+	 * 
+	 * @param userId is Integer type value
+	 * @return postList
 	 */
-
-	public Post updatePost(Post post) {
-		log.debug("PostService updatePost method calling.");
-		Post existPost=postRepository.findByPostId(post.getPostId());
-		existPost.setMessage(post.getMessage());
-		return postRepository.save(existPost);
+	public Post findPostById(Integer postId) {
+		log.debug("PostService in findPostById method calling.");
+		Post post = postRepository.findByPostId(postId);
+		return post;
 	}
 
 	/**
-	 * deletePost method is delete post 
+	 * updatePost method is update exist post 
+	 * @param post
+	 * @return updatedPost
+	 */
+	public Post updatePost(Post post) {
+		log.debug("PostService in updatePost method calling.");
+		post.setPostedDate(new Date());
+		Post existPost=findPostById(post.getPostId());
+		post.setUser(existPost.getUser());
+		return postRepository.save(post);
+	}
+
+	/**
+	 * deletePost method is delete exist post 
 	 * 
 	 * @param id
 	 * @return deletedPost
 	 */
-	public Post deletePost(int id) {
+	public void deletePost(int id) {
 		log.debug("PostService deletePost method calling.");
 		Post deletedPost=postRepository.findByPostId(id);
-		postRepository.delete(deletedPost);
-		return deletedPost;
+		//postRepository.delete(deletedPost);
+		postRepository.deleteById(id);
 	}
 }

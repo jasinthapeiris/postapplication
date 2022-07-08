@@ -18,18 +18,95 @@ pageEncoding="utf-8"%>
     <title>Login</title>
     
     
-<script> 
-window.onload = function(e){ 
-       document.getElementById("error1").style.display = "none";  
-}  
-function check() {
- if(document.getElementById("password").value.length==0){
-      document.getElementById("error1").style.display = "block";
-    }
+    
+    
+    
+    
+    
+    <style>
+     @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+
+body{
+    margin: 0;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f5f8fa;
+    font-family: "Meiryo", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "MS Gothic", "MS P Gothic", sans-serif !important;
 }
-</script>
+
+.navbar-laravel
+{
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+.navbar-brand , .nav-link, .my-form, .login-form
+{
+    font-family: Raleway, sans-serif;
+}
+
+.my-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.my-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-top: 150px;
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.card-header1 {
+
+  text-align: center !important;
+}
+
+.navbar-toggler-icon{
+  display: inline !important;
+}
+
+.post-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-top: 100px;
+}
 
 
+#postTable{
+  margin-top: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    
+  }
+  
+  .phara{
+  	margin-top: 8px;
+  	color:red
+
+  }
+    </style>
+    
+    
 </head>
 <body> 
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel" style="background-color: #d0cece;">
@@ -59,7 +136,7 @@ function check() {
                                 </div>
                             </div>
                             <div class="col-md-2 offset-md-5">
-                                <button id="loginButton" onclick="check()"  style="background-color: #d0cece; border-color: #6882a4"; class="btn btn-primary">
+                                <button type="submit" style="background-color: #d0cece; border-color: #6882a4"; class="btn btn-primary">
                                   ログインする
                                 </button>
                             </div>
@@ -69,10 +146,10 @@ function check() {
                     
                 </div>
                 <div>
-	        <p id="error1"  class="phara">パスワードを省略することはできません</p>
+	        <p class="phara">パスワードを省略することはできません</p>
 	        </div>
 	         <div>
-	        <p id="error2" class="phara">メールアドレス、もしくはパスワードが間違っています</p>
+	        <p class="phara">${error}</p>
 	        </div>
             </div>
         </div>
@@ -81,6 +158,6 @@ function check() {
     </div>
 
 </main>
-
+<script src="js/login.js"></script>
 </body>
 </html>
