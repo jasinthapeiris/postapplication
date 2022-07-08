@@ -16,17 +16,8 @@ pageEncoding="utf-8"%>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <title>Login</title>
-    
-    
-    
-    
-    
-    
-    
     <style>
      @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
-
 body{
     margin: 0;
     font-size: .9rem;

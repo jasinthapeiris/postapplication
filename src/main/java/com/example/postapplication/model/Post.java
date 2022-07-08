@@ -44,4 +44,7 @@ public class Post implements Serializable {
 	@JoinColumn(name = "user_id")
 	@JsonBackReference
 	private User user;
+	@Transient
+	private String date;
+
 }
