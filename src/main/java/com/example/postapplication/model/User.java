@@ -50,7 +50,7 @@ public class User implements Serializable {
 	private String userSalt;
 	@Column(name = "user_unlock")
 	private Date userUnlock;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	@OneToMany(mappedBy = "user")
 	@JsonManagedReference
 	Set<Post> post=new HashSet<Post>();
 }

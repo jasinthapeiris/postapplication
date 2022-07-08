@@ -7,7 +7,6 @@ pageEncoding="UTF-8" %>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="/css/signin.css" rel="stylesheet" type="text/css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -101,12 +100,12 @@ pageEncoding="UTF-8" %>
                             <form action="/save" method="post">
                                 <table style="width:100%">
                                     <div style="margin-bottom: -8px;">
-                                        <label>杉山さん、ログイン中...</lable>
+                                        <label>${loginUser.userName}さん、ログイン中...</lable>
                                             <label class="label-two">ログアウト</lable>
                                             </div>
                                             <tr>
                                               <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
-                                              <td>杉山</td>
+                                              <td>${loginUser.userName}</td>
                                           </tr>
                                           <tr style="height:200px">
                                               <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
@@ -122,22 +121,17 @@ pageEncoding="UTF-8" %>
                             </form>
                         </div>
                     </div>
-                    
-                    
-                    
                    <c:forEach items="${postList}" var="post"> 
                     <div class="col-md-10" id="list" >
                         <div class="row" style="margin-top: 5px;">
                             <div class="col-md-5" style="float: left;">${post.user.userName}</div>
                             <div class="col-md-3">${post.postedDate}</div>
-                            <div class="col-md-2" style="text-align: end;"><a href="/editpost">編集</a></div>
-                            <div class="col-md-2" style="text-align: end;"><a  href="/deletepost">削除</a></div>
+                            <div class="col-md-2" style="text-align: end;"><a href="/editpost/${post.postId}">編集</a></div>
+                            <div class="col-md-2" style="text-align: end;"><a  href="/deletepost/${post.postId}">削除</a></div>
                         </div>
                         <div><p style="margin-top: 10px;">${post.message}</p></div>
                     </div>
                    </c:forEach>
-                   
-                   
                 </div>
             </div>
         </main></body>
