@@ -125,7 +125,7 @@ pageEncoding="UTF-8" %>
                     <div class="col-md-10" id="list" >
                         <div class="row" style="margin-top: 5px;">
                             <div class="col-md-5" style="float: left;">${post.user.userName}</div>
-                            <div class="col-md-3">${post.postedDate}</div>
+                            <div class="col-md-3">${post.date}</div>
                             <div class="col-md-2" style="text-align: end;"><a href="/editpost/${post.postId}">編集</a></div>
                             <div class="col-md-2" style="text-align: end;"><a  href="/deletepost/${post.postId}">削除</a></div>
                         </div>

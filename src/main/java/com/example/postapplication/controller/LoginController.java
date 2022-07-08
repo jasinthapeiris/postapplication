@@ -15,6 +15,9 @@
  */
 package com.example.postapplication.controller;
 
+import java.util.Date;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.postapplication.model.User;
 import com.example.postapplication.service.UserService;
@@ -39,7 +44,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
 public class LoginController {
 
-	private static final String ERROR = "メールアドレス、もしくはパスワードが間違っています";	
+	private static final String ERROR = "メールアドレス、もしくはパスワードが間違っています";
 	private final UserService userService;
 
 	/**
@@ -61,7 +66,7 @@ public class LoginController {
 	 * @return redirect to post url
 	 */
 	@PostMapping("/verify")
-	public String verfiyUser(@ModelAttribute User user,HttpSession session) {
+	public String verfiyUser(@ModelAttribute User user, HttpSession session) {
 		log.info("LoginController in verfiyUser method calling.");
 		Boolean status = userService.authenticateUser(user);
 		if (status == true) {
@@ -69,8 +74,19 @@ public class LoginController {
 			session.setAttribute("loginUser", userData);
 			return "redirect:/post";
 		} else {
-			session.setAttribute("error",ERROR);
+			session.setAttribute("error", ERROR);
 			return "redirect:/login";
 		}
+	}
+
+	/**
+	 * logout is log out created by user
+	 * 
+	 * @param post
+	 * @return redirect to post url
+	 */
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public void logout(HttpSession session) {
+		session.invalidate();
 	}
 }

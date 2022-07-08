@@ -109,10 +109,10 @@ tbody tr td:first-child {
             <!--div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link"> 杉山さん、ログイン中...</a>
+                        <a class="nav-link"> ${loginUser.userName}さん、ログイン中...</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">ログアウト</a>
+                        <a class="nav-link" href="logout">ログアウト</a>
                     </li>
                 </ul>
     
