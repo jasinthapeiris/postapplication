@@ -7,12 +7,11 @@
 6.Add your data base user name and password to application.properties file-->postapplication/src/main/resources/application.properties
 7.open terminal in project src location and type ---> mvn spring-boot:run
 8.open chrome browser and type --> http://localhost:8080/login
-9.add user email and password-->
-						
-						userEmail =sugi@ken.jp
-						password =sugiyama
-						OR
-						userEmail =kubo@ken.jp
-						password =kubo
+9.add user email and password-->						
+				userEmail =sugi@ken.jp
+				password =sugiyama
+				OR
+				userEmail =kubo@ken.jp
+				password =kubo
 						
 10.Now you can create,edit and delete your post.
