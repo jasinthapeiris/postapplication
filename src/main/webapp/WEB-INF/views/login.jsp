@@ -59,7 +59,7 @@ pageEncoding="utf-8"%>
        <p class="phara" id="error2">パスワードを省略することはできません</p>
         </div>
          <div>
-        <p class="phara" id="error1">${error1}</p>
+        <p class="phara" id="error1">メールアドレス、もしくはパスワードが間違っています</p>
         </div>
         </div>
     </div>

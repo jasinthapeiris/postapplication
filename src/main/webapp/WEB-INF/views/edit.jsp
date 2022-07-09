@@ -108,7 +108,7 @@ width: 13%;
                              <form action="/edit" method="post">
 								<div>
 								<label>${userName}さん、ログイン中...</lable>
-								<label class="label-two">ログアウト</lable>
+								 <a class="label-two" href="/logout">ログアウト</a>
 								</div>
                                 <table style="width:100%">
                                     <tr>
