@@ -1,8 +1,8 @@
 /*
  *  @author Jasintha Peiris
- *  @version 0.0.1 2022/07/04 
+ *  @version 0.0.1 2022/07/04
  *  E-Mail jasinthaamakara@gmail.com
- * 
+ *
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
  *  PROPRIETARY AND COPYRIGHT NOTICE.
  *  This software product contains information which is proprietary to
@@ -15,31 +15,30 @@
  */
 package com.example.postapplication.controller;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Jasintha Peiris
  * @version 0.0.1 2022/07/04 This class process the Login operation controller
- *          class
+ * class
  */
 @Slf4j
 @Controller
-@RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
+@RequiredArgsConstructor(onConstructor = @__({@Autowired}))
 public class LoginController {
 	/**
 	 * Returns login page for login to user
-	 * 
+	 *
 	 * @return login page as a model
 	 */
 	@RequestMapping("/login")
 	public ModelAndView login() {
 		log.info("LoginController login method calling.");
-		ModelAndView model = new ModelAndView("login");
-		return model;
+		return new ModelAndView("login");
 	}
 }

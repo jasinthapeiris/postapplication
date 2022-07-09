@@ -2,7 +2,7 @@
  *  @author Jasintha Peiris
  *  @version 0.0.1 2022/07/04 説明
  *  E-Mail jasinthaamakara@gmail.com
- * 
+ *
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
  *  PROPRIETARY AND COPYRIGHT NOTICE.
  *  This software product contains information which is proprietary to
@@ -17,6 +17,7 @@ package com.example.postapplication.service;
 
 import com.example.postapplication.model.User;
 import com.example.postapplication.repository.UserRepository;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,63 +26,49 @@ import org.springframework.stereotype.Component;
 /**
  * @author Jasintha Peiris
  * @version 0.0.1 2022/07/04 This class process the user crud operation Service
- *          class
+ * class
  */
 @Slf4j
 @Component
-@RequiredArgsConstructor(onConstructor = @__({ @Autowired }))
+@RequiredArgsConstructor(onConstructor = @__({@Autowired}))
 public class UserService {
 	private final UserRepository userRepository;
 
 	/**
 	 * findByUserId method is Returns user by given user id
-	 * 
+	 *
 	 * @param userId Integer value
 	 * @return user
 	 */
-	public User findByUserId(Integer userId) {
+	@NonNull
+	public User findByUserId(@NonNull Integer userId) {
 		log.debug("UserService in findAllByUserId method calling.");
-		User user = userRepository.findByUserId(userId);
-		return user;
+		return userRepository.findByUserId(userId);
 	}
 
 	/**
 	 * findByUserEmail method is Returns user By User Email
-	 * 
+	 *
 	 * @param userEmail String value
 	 * @return user
 	 */
-	public User findByUserEmail(String userEmail) {
+	@NonNull
+	public User findByUserEmail(@NonNull String userEmail) {
 		log.debug("UserService in findAllByUserId method calling.");
-		User user = userRepository.findByUserEmail(userEmail);
-		return user;
+		return userRepository.findByUserEmail(userEmail);
 	}
 
 	/**
 	 * authenticateUser method is Returns status after validate user
-	 * 
-	 * @param user
+	 *
+	 * @param userEmail user email value String
+	 * @param password password value String
 	 * @return status
 	 */
-	public Boolean authenticateUser(String userEmail, String password) {
+	@NonNull
+	public Boolean authenticateUser(@NonNull String userEmail,@NonNull String password) {
 		log.debug("UserService in authenticateUser method calling.");
-		Boolean status = false;
 		User userData = userRepository.findByUserEmailAndUserPassword(userEmail, password);
-		if (userData != null) {
-			status = true;
-		}
-		return status;
-	}
-
-	/**
-	 * findUserByEmailPsw method is Returns find User By Email Password
-	 * 
-	 * @param user
-	 * @return user
-	 */
-	public User findUserByEmailPsw(User user) {
-		log.debug("UserService in authenticateUser method calling.");
-		User userData = userRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
-		return userData;
+		return userData != null;
 	}
 }

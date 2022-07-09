@@ -2,7 +2,7 @@
  *  @author Jasintha Peiris
  *  @version 0.0.1 2022/05/05 説明
  *  E-Mail jasinthaamakara@gmail.com
- * 
+ *
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
  *  PROPRIETARY AND COPYRIGHT NOTICE.
  *  This software product contains information which is proprietary to
