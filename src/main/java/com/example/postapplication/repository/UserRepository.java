@@ -29,6 +29,8 @@ import com.example.postapplication.model.User;
 @Transactional
 public interface UserRepository extends CrudRepository<User, Integer> {
 	User findByUserId(Integer userId);
-	User findByUserEmailAndUserPassword(String userEmail,String password);
+
+	User findByUserEmailAndUserPassword(String userEmail, String password);
+
 	User findByUserEmail(String userEmail);
 }
