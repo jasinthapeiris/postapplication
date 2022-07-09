@@ -30,4 +30,5 @@ import com.example.postapplication.model.User;
 public interface UserRepository extends CrudRepository<User, Integer> {
 	User findByUserId(Integer userId);
 	User findByUserEmailAndUserPassword(String userEmail,String password);
+	User findByUserEmail(String userEmail);
 }

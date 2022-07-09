@@ -86,7 +86,7 @@ width: 13%;
 }
 </style>
 
-<title>Post</title>
+<title>Edit</title>
 </head>
 <body>
 <!--nav class="navbar navbar-expand-lg navbar-light navbar-laravel"-->
@@ -107,13 +107,13 @@ width: 13%;
                         <div class="card-body">
                              <form action="/edit" method="post">
 								<div>
-								<label>${loginUser.userName}さん、ログイン中...</lable>
+								<label>${userName}さん、ログイン中...</lable>
 								<label class="label-two">ログアウト</lable>
 								</div>
                                 <table style="width:100%">
                                     <tr>
                                       <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
-                                      <td>${loginUser.userName}</td>
+                                      <td>${userName}</td>
                                     </tr>
                                     <tr style="height:200px">
                                       <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>
