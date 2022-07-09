@@ -15,6 +15,7 @@
  */
 package com.example.postapplication.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.postapplication.model.Post;
 import com.example.postapplication.model.User;
 import com.example.postapplication.service.PostService;
+import com.example.postapplication.service.UserService;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -43,6 +46,7 @@ import lombok.extern.slf4j.Slf4j;
 public class PostController {
 
 	private final PostService postService;
+	private final UserService userService;
 	
 	/**
 	 * open post page as a model for create and view operation
@@ -50,10 +54,12 @@ public class PostController {
 	 * @return post page as a model
 	 */
 	@RequestMapping("/post")
-	public ModelAndView post(HttpSession session) {
+	public ModelAndView post(Principal principal) {
 		log.info("PostController in post method calling.");
-		User user = (User) session.getAttribute("loginUser");
 		ModelAndView model = new ModelAndView("post");
+		String userEmail=principal.getName();
+		User user =userService.findByUserEmail(userEmail);
+		//session.setAttribute("loginUser", user);
 		List<Post> postList = postService.findPostByUser(user.getUserId());
 		model.addObject("postList", postList);
 		return model;
@@ -94,9 +100,11 @@ public class PostController {
 	 * @return redirect to post url
 	 */
 	@PostMapping("/save")
-	public String save(@ModelAttribute Post post,HttpSession session) {
+	public String save(@ModelAttribute Post post,Principal principal) {
 		log.info("PostController in save method calling.");
-	    User user = (User) session.getAttribute("loginUser");
+		String userEmail=principal.getName();
+		User user =userService.findByUserEmail(userEmail);
+	   
 		postService.savePost(post,user);
 		return "redirect:/post";
 	}

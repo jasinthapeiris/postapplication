@@ -44,6 +44,18 @@ public class UserService {
 		User user = userRepository.findByUserId(userId);
 		return user;
 	}
+	
+	/**
+	 * findByUserEmail method is Returns user By User Email
+	 * 
+	 * @param userEmail String value
+	 * @return user
+	 */
+	public User findByUserEmail(String userEmail) {
+		log.debug("UserService in findAllByUserId method calling.");
+		User user = userRepository.findByUserEmail(userEmail);
+		return user;
+	}
 
 	/**
 	 * authenticateUser method is Returns status after validate user
@@ -51,10 +63,10 @@ public class UserService {
 	 * @param user
 	 * @return status
 	 */
-	public Boolean authenticateUser(User user) {
+	public Boolean authenticateUser(String userEmail, String password) {
 		log.debug("UserService in authenticateUser method calling.");
 		Boolean status = false;
-		User userData = userRepository.findByUserEmailAndUserPassword(user.getUserEmail(), user.getUserPassword());
+		User userData = userRepository.findByUserEmailAndUserPassword(userEmail, password);
 		if (userData != null) {
 			status = true;
 		}

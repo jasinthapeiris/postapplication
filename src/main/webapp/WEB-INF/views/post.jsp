@@ -7,6 +7,7 @@ pageEncoding="UTF-8" %>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="css/login.css" rel="stylesheet">
 <!-- Fonts -->
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -19,63 +20,6 @@ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
-<style>
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-body{
-    margin: 0;
-    font-size: .9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #212529;
-    text-align: left;
-    background-color: #f5f8fa;
-    font-family: "Meiryo", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "MS Gothic", "MS P Gothic", sans-serif !important;
-}
-.navbar-laravel
-{
-    box-shadow: 0 2px 4px rgba(0,0,0,.04);
-}
-.navbar-brand , .nav-link, .my-form, .login-form
-{
-    font-family: Raleway, sans-serif;
-}
-.my-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-.login-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: 150px;
-}
-.login-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-.post-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin-top: 100px;
-}
-
-#postTable{
-  margin-top: 50px;
-}
-table, th, td {
-border: 1px solid black;
-
-}
-tbody tr td:first-child {
-width: 13%;
-}
-.label-two {
-margin-left: 10px;
-}
-</style>
 <title>Post</title>
 </head>
 <body>
@@ -100,12 +44,12 @@ margin-left: 10px;
                     <form action="/save" method="post">
                         <table style="width:100%">
                             <div style="margin-bottom: -8px;">
-                                <label>${loginUser.userName}さん、ログイン中...</lable>
-                                    <label class="label-two">ログアウト</lable>
+                                <label>${userName}さん、ログイン中...</lable>
+                                    <a class="label-two" href="/logout">ログアウト</a>
                                     </div>
                                     <tr>
                                       <td><label for="email_address" class="col-md-10 col-form-label text-md-right">発言者</label></td>
-                                      <td>${loginUser.userName}</td>
+                                      <td>${userName}</td>
                                   </tr>
                                   <tr style="height:200px">
                                       <td><label for="email_address" class="col-md-10 col-form-label text-md-right">内容</label></td>

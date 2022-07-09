@@ -44,71 +44,71 @@ public class PostService {
 	private final UserService userService;
 
 	/**
-	 * savePost method is save post and Return saved post
-	 * 
-	 * @param post
-	 * @param user
-	 * @return saved post
-	 */
-	public @NonNull Post savePost(Post post, User user) {
-		log.debug("PostService in savePost method calling.");
-		post.setPostedDate(new Date());
-		User exist = userService.findByUserId(user.getUserId());
-		post.setUser(exist);
-		return postRepository.save(post);
-	}
+ * savePost method is save post and Return saved post
+ * 
+ * @param post
+ * @param user
+ * @return saved post
+ */
+public @NonNull Post savePost(Post post, User user) {
+	log.debug("PostService in savePost method calling.");
+	post.setPostedDate(new Date());
+	User exist = userService.findByUserId(user.getUserId());
+	post.setUser(exist);
+	return postRepository.save(post);
+}
 
-	/**
-	 * findPostByUser method is find Post By User Id and return post list
-	 * 
-	 * @param userId is Integer type value
-	 * @return postList
-	 */
-	public List<Post> findPostByUser(Integer userId) {
-		log.debug("PostService findPostByUser method calling.");
-		List<Post> postList = postRepository.findByUserUserId(userId);
-		for (Post post : postList) {
-			String dateTime = SimpleDateFormat
-					.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG, Locale.JAPAN)
-					.format(post.getPostedDate());
-			post.setDate(dateTime);
-		}
-		return postList;
+/**
+ * findPostByUser method is find Post By User Id and return post list
+ * 
+ * @param userId is Integer type value
+ * @return postList
+ */
+public List<Post> findPostByUser(Integer userId) {
+	log.debug("PostService findPostByUser method calling.");
+	List<Post> postList = postRepository.findByUserUserId(userId);
+	for (Post post : postList) {
+		String dateTime = SimpleDateFormat
+				.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG, Locale.JAPAN)
+				.format(post.getPostedDate());
+		post.setDate(dateTime);
 	}
+	return postList;
+}
 
-	/**
-	 * findPostById method is find Post By Id and return post
-	 * 
-	 * @param userId is Integer type value
-	 * @return postList
-	 */
-	public Post findPostById(Integer postId) {
-		log.debug("PostService in findPostById method calling.");
-		Post post = postRepository.findByPostId(postId);
-		return post;
-	}
+/**
+ * findPostById method is find Post By Id and return post
+ * 
+ * @param userId is Integer type value
+ * @return postList
+ */
+public Post findPostById(Integer postId) {
+	log.debug("PostService in findPostById method calling.");
+	Post post = postRepository.findByPostId(postId);
+	return post;
+}
 
-	/**
-	 * updatePost method is update exist post
-	 * 
-	 * @param post
-	 * @return updatedPost
-	 */
-	public Post updatePost(Post post) {
-		log.debug("PostService in updatePost method calling.");
-		post.setPostedDate(new Date());
-		Post existPost = findPostById(post.getPostId());
-		post.setUser(existPost.getUser());
-		return postRepository.save(post);
-	}
+/**
+ * updatePost method is update exist post
+ * 
+ * @param post
+ * @return updatedPost
+ */
+public Post updatePost(Post post) {
+	log.debug("PostService in updatePost method calling.");
+	post.setPostedDate(new Date());
+	Post existPost = findPostById(post.getPostId());
+	post.setUser(existPost.getUser());
+	return postRepository.save(post);
+}
 
-	/**
-	 * deletePost method is delete exist post
-	 * 
-	 * @param id
-	 */
-	public void deletePost(int id) {
-		log.debug("PostService deletePost method calling.");
+/**
+ * deletePost method is delete exist post
+ * 
+ * @param id
+ */
+public void deletePost(int id) {
+	log.debug("PostService deletePost method calling.");
 		postRepository.findByPostId(id);
 		postRepository.deleteById(id);
 	}
