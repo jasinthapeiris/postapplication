@@ -46,5 +46,4 @@ public class Post implements Serializable {
 	private User user;
 	@Transient
 	private String date;
-
 }

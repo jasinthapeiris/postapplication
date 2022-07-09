@@ -19,7 +19,6 @@ import javax.transaction.Transactional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import com.example.postapplication.model.Post;
-import java.lang.String;
 import java.util.List;
 
 /**
@@ -31,5 +30,6 @@ import java.util.List;
 @Transactional
 public interface PostRepository extends CrudRepository<Post, Integer> {
 	List<Post> findByUserUserId(Integer userId);
+
 	Post findByPostId(Integer postId);
 }

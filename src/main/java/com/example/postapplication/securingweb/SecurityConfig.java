@@ -15,9 +15,6 @@
  */
 package com.example.postapplication.securingweb;
 
-import javax.websocket.Session;
-
-import org.aspectj.weaver.ast.And;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

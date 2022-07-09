@@ -44,7 +44,7 @@ public class UserService {
 		User user = userRepository.findByUserId(userId);
 		return user;
 	}
-	
+
 	/**
 	 * findByUserEmail method is Returns user By User Email
 	 * 
