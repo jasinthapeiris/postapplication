@@ -1,8 +1,8 @@
 /*
  *  @author Jasintha Peiris
- *  @version 0.0.1 2022/07/05 
+ *  @version 0.0.1 2022/07/05
  *  E-Mail jasinthaamakara@gmail.com
- * 
+ *
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
  *  PROPRIETARY AND COPYRIGHT NOTICE.
  *  This software product contains information which is proprietary to
@@ -15,21 +15,24 @@
  */
 package com.example.postapplication.repository;
 
-import javax.transaction.Transactional;
+import com.example.postapplication.model.Post;
+import lombok.NonNull;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.example.postapplication.model.Post;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * @author Jasintha Peiris
  * @version 0.0.1 2022/07/04 This class process the Post crud operation extends
- *          CrudRepository using springframework
+ * CrudRepository using springframework
  */
 @Repository
 @Transactional
 public interface PostRepository extends CrudRepository<Post, Integer> {
-	List<Post> findByUserUserId(Integer userId);
 
-	Post findByPostId(Integer postId);
+	List<Post> findByUserUserId(@NonNull Integer userId);
+
+	Post findByPostId(@NonNull Integer postId);
 }

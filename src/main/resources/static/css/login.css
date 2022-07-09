@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     font-size: .9rem;
     font-weight: 400;
@@ -9,75 +9,67 @@ body{
     font-family: "Meiryo", Meiryo, "Hiragino Kaku Gothic Pro", Osaka, "MS Gothic", "MS P Gothic", sans-serif !important;
 }
 
-.navbar-laravel
-{
-    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+.navbar-laravel {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
 }
 
-.navbar-brand , .nav-link, .my-form, .login-form
-{
+.navbar-brand, .nav-link, .my-form, .login-form {
     font-family: Raleway, sans-serif;
 }
 
-.my-form
-{
+.my-form {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
 
-.my-form .row
-{
+.my-form .row {
     margin-left: 0;
     margin-right: 0;
 }
 
-.login-form
-{
+.login-form {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     margin-top: 150px;
 }
 
-.login-form .row
-{
+.login-form .row {
     margin-left: 0;
     margin-right: 0;
 }
 
 .card-header1 {
-
-  text-align: center !important;
+    text-align: center !important;
 }
 
-.navbar-toggler-icon{
-  display: inline !important;
+.navbar-toggler-icon {
+    display: inline !important;
 }
 
-.post-form
-{
+.post-form {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     margin-top: 100px;
 }
 
-
-#postTable{
-  margin-top: 30px;
+#postTable {
+    margin-top: 30px;
 }
 
 table, th, td {
     border: 1px solid black;
-    
-  }tbody tr td:first-child {
-width: 13%;
 }
-.label-two {
-margin-left: 10px;
-margin-bottom: -15px;
-}
-  
-  .phara{
-  	margin-top: 8px;
-  	color:red
 
-  }
+tbody tr td:first-child {
+    width: 13%;
+}
+
+.label-two {
+    margin-left: 10px;
+    margin-bottom: -15px;
+}
+
+.phara {
+    margin-top: 8px;
+    color: red
+}

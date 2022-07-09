@@ -1,8 +1,8 @@
 /*
  *  @author Jasintha Peiris
- *  @version 0.0.1 2022/07/05 
+ *  @version 0.0.1 2022/07/05
  *  E-Mail jasinthaamakara@gmail.com
- * 
+ *
  *  Copyright (c), Jasintha Peiris  All Rights Reserved.
  *  PROPRIETARY AND COPYRIGHT NOTICE.
  *  This software product contains information which is proprietary to
@@ -15,35 +15,46 @@
  */
 package com.example.postapplication.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
+
 import javax.persistence.*;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author Jasintha Peiris
  * @version 0.0.1 2022/07/04 This class process the Post model class for post
- *          database
+ * database
  */
 @Setter
 @Getter
 @Entity
 @Table(name = "post")
 public class Post implements Serializable {
+
+	private static final String POST_ID = "post_id";
+	private static final String POSTED_DATE = "posted_date";
+	private static final String MESSAGE = "message";
+	private static final String USER_ID = "user_id";
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "post_id")
+	@Column(name = POST_ID)
 	private Integer postId;
-	@Column(name = "posted_date")
+
+	@Column(name = POSTED_DATE)
 	private Date postedDate;
-	@Column(name = "message")
+
+	@Column(name = MESSAGE)
 	private String message;
+
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = USER_ID)
 	@JsonBackReference
 	private User user;
+
 	@Transient
 	private String date;
 }
