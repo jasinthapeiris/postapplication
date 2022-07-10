@@ -37,15 +37,13 @@
                                 <div class="form-group row">
                                     <label for="email_address"
                                            class="col-md-4 col-form-label text-md-right">メールアドレス</label>
-                                    <div class="col-md-6">
-                                        <!--input type="text" id="userEmail" class="form-control" name="userEmail"-->
+                                    <div class="col-md-6">                                       
                                         <input type="text" id="username" class="form-control" name="username">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">パスワード</label>
-                                    <div class="col-md-6">
-                                        <!--input type="password" id="userPassword" class="form-control" name="userPassword"-->
+                                    <div class="col-md-6">                                     
                                         <input type="password" id="password" class="form-control" name="password">
                                     </div>
                                 </div>
