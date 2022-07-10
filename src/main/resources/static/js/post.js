@@ -3,7 +3,7 @@ $('#submit').click(function(e) {
 	if (message == "") {
 		e.preventDefault();
 		$.alert({
-			title: 'Empty Message!',
+			title: 'Message is Empty!',
 			content: 'Please Enter Message',
 		});
 	}
@@ -12,12 +12,12 @@ $('#deletebtn').click(function(e) {
 	e.preventDefault();
 	$.confirm({
 		title: 'Delete!',
-		content: 'Please Confirm Delete Message',
+		content: 'Do You Want To Delete This?',
 		buttons: {
-			confirm: function() {
+			Yes: function() {
 				$('#deletebtn').closest('form').submit();
 			},
-			cancel: function() { }
+			No: function() { }
 		}
 	});
 });
