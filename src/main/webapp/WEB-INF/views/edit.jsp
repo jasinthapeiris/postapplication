@@ -26,6 +26,9 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
@@ -130,7 +133,7 @@
                                     <tr>
                                         <td colspan="2">
                                             <button style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;"
-                                                    type="submit" class="btn btn-primary" value="">編
+                                                    type="submit" id="submit" class="btn btn-primary" value="">編
                                             </button>
                                             <button onclick="window.location.href = '/post'"
                                                     style="margin-left: 5px; width: 95px; background-color: #d0cece; border-color: #6882a4; color: #212529;"
@@ -148,5 +151,6 @@
         </div>
     </main>
 </main>
+<script src="../js/post.js"></script>
 </body>
 </html>

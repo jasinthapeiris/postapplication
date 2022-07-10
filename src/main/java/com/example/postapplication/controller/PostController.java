@@ -43,6 +43,7 @@ import java.util.List;
 public class PostController {
 
 	private static final String POST = "post";
+	private static final String POSTLIST = "postList";
 	private final PostService postService;
 	private final UserService userService;
 
@@ -54,11 +55,11 @@ public class PostController {
 	@RequestMapping("/post")
 	public ModelAndView post(Principal principal) {
 		log.info("PostController in post method calling.");
-		ModelAndView model = new ModelAndView(POST);
+		ModelAndView model = new ModelAndView("post");
 		String userEmail = principal.getName();
 		User user = userService.findByUserEmail(userEmail);
 		List<Post> postList = postService.findPostByUser(user.getUserId());
-		model.addObject("postList", postList);
+		model.addObject(POSTLIST, postList);
 		return model;
 	}
 
